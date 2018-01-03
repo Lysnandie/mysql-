@@ -27,10 +27,10 @@ function bamazon() {
   connection.query("SELECT * FROM products", function(err, result) {
     if (err) throw err;
     var table = new Table({
-      head: ['ID', 'Product Name', 'Department Name', 'Price', 'Stock Quantity']
+      head: ['ID', 'Product Name', 'Department Name', 'Price']
     });
     for (var i = 0; i < result.length; i++) {
-      table.push([result[i].item_id, result[i].product_name, result[i].department_name, result[i].price, result[i].stock_quantity])
+      table.push([result[i].item_id, result[i].product_name, result[i].department_name, result[i].price])
     }
     console.log(table.toString());
 
